@@ -9,52 +9,52 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
-const shoppingListInDB = ref(database, "shoppingList")
+const goalListInDB = ref(database, "goalList")
 
 
 const inputFieldEl = document.getElementById('input-field')
 const addButtonEl = document.getElementById('add-button')
-const shoppingListEl = document.getElementById('shopping-list')
+const goalListEl = document.getElementById('goal-list')
 
 
 addButtonEl.addEventListener('click', () => {
     let inputValue = inputFieldEl.value
 
-    push(shoppingListInDB, inputValue)
+    push(goalListInDB, inputValue)
     
     clearInputFieldEl()
 })
 
-onValue(shoppingListInDB, function(snapshot) {
+onValue(goalListInDB, function(snapshot) {
 
     if(snapshot.exists()) {
         let itemsArray = Object.entries(snapshot.val())
 
-        clearShoppingListEl()    
+        clearGoalListEl()    
     
         for(let i = 0; i < itemsArray.length; i++) {
             let currentItem = itemsArray[i]
             let currentItemId = currentItem[0]
             let currentItemValue = currentItem[1]
-            appendItemToShoppingListEl(currentItem)
+            appendItemToGoalListEl(currentItem)
         }
     } else {
-        shoppingListEl.innerHTML = "No items here...yet"
+        goalListEl.innerHTML = "No items here...yet"
     }
    
     
   
 })
 
-function clearShoppingListEl() {
-    shoppingListEl.innerHTML = ''
+function clearGoalListEl() {
+    goalListEl.innerHTML = ''
 }
 
 function clearInputFieldEl() {
     inputFieldEl.value = ''
 }
 
-function appendItemToShoppingListEl(item) {
+function appendItemToGoalListEl(item) {
     
     let itemID = item[0]
     let itemValue = item[1]
@@ -63,10 +63,10 @@ function appendItemToShoppingListEl(item) {
 
     newEl.addEventListener('click', function(){
         
-        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+        let exactLocationOfItemInDB = ref(database, `goalList/${itemID}`)
 
         remove(exactLocationOfItemInDB)
     })
 
-    shoppingListEl.append(newEl)
+    goalListEl.append(newEl)
 }
