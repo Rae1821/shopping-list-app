@@ -4,13 +4,13 @@
 - Based on the shopping list app built with the [Build A Mobile App class from Scrimba](https://scrimba.com/learn/firebase/lets-build-a-mobile-app-with-firebase-co8de4dd39fd49db58b3e5ff8)
 
 
-![](./screenshot.png)
+![](./images/screenshot.PNG)
 
 
 ### Links
 
-- Live Site URL:[todays-goals.netlify.app](https://todays-goals.netlify.app)
-- Source Code:[Github Repo](https://github.com/Rae1821/todays-goals-app.com)
+- Live Site URL: [Today's #Goals](https://todays-goals.netlify.app)
+- Source Code: [Github Repo](https://github.com/Rae1821/todays-goals-app.com)
 
 
 ### Built with
