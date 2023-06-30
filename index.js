@@ -4,7 +4,7 @@ import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com
 
 //the database you created in firebase
 const appSettings = {
-    databaseURL: "https://realtime-database-f0fc6-default-rtdb.firebaseio.com/"
+    databaseURL: "https://goals-app-6f03a-default-rtdb.firebaseio.com/"
 }
 
 const app = initializeApp(appSettings)
@@ -26,8 +26,9 @@ addButtonEl.addEventListener('click', () => {
 })
 
 onValue(goalListInDB, function(snapshot) {
-
+//checks database for a snapshot
     if(snapshot.exists()) {
+        //if there is one get the value of the snapshot
         let itemsArray = Object.entries(snapshot.val())
 
         clearGoalListEl()    
